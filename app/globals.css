@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+:root {
+  /* Military Command Color Palette */
+  --industrial-blue: #1A2332;
+  --cargo-orange: #FF6B35;
+  --steel-gray: #607D8B;
+  --charcoal-black: #0F1419;
+  --platinum-white: #F5F5F5;
+  --electric-blue: #00D4FF;
+  --rust-red: #B7472A;
+  --concrete-gray: #3C4043;
+  --metal-silver: #9E9E9E;
+  --royal-accent: #4A90E2;
+  
+  /* Theme Variables */
+  --background: var(--charcoal-black);
+  --foreground: var(--platinum-white);
+  --primary: var(--cargo-orange);
+  --secondary: var(--steel-gray);
+  --accent: var(--electric-blue);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-industrial-blue: var(--industrial-blue);
+  --color-cargo-orange: var(--cargo-orange);
+  --color-steel-gray: var(--steel-gray);
+  --color-charcoal-black: var(--charcoal-black);
+  --color-platinum-white: var(--platinum-white);
+  --color-electric-blue: var(--electric-blue);
+  --color-rust-red: var(--rust-red);
+  --color-concrete-gray: var(--concrete-gray);
+  --color-metal-silver: var(--metal-silver);
+  --color-royal-accent: var(--royal-accent);
+  --font-display: var(--font-orbitron);
+  --font-sans: var(--font-rajdhani);
+  --font-mono: var(--font-space-grotesk);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Industrial scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--charcoal-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cargo-orange);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--electric-blue);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--cargo-orange);
+  color: var(--charcoal-black);
+}
+
+/* Refined button styles */
+.btn-cargo {
+  @apply bg-cargo-orange text-charcoal-black font-medium px-6 py-3 border border-cargo-orange transition-all duration-300 hover:bg-electric-blue hover:border-electric-blue font-sans shadow-md hover:shadow-lg;
+}
+
+.btn-cargo-outline {
+  @apply bg-transparent text-cargo-orange font-medium px-6 py-3 border border-cargo-orange transition-all duration-300 hover:bg-cargo-orange hover:text-charcoal-black font-sans shadow-md hover:shadow-lg;
+}
+
+/* Refined terminal styling */
+.cargo-terminal {
+  @apply bg-industrial-blue border border-steel-gray font-mono text-sm overflow-x-auto;
+}
+
+.cargo-manifest {
+  @apply bg-gradient-to-br from-charcoal-black to-industrial-blue font-mono text-sm overflow-x-auto;
+}
+
+.text-cargo-orange {
+  color: var(--cargo-orange);
+}
+
+.text-electric-blue {
+  color: var(--electric-blue);
+}
+
+.text-steel-gray {
+  color: var(--steel-gray);
+}
+
+.text-metal-silver {
+  color: var(--metal-silver);
+}
+
+/* Industrial fade animation */
+@keyframes industrial-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-industrial-fade-in {
+  animation: industrial-fade-in 0.6s ease-out;
+}
+
+/* Refined shadow effects */
+.cargo-glow {
+  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.08);
+}
+
+.electric-glow {
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.12);
+}
+
+.royal-shadow {
+  box-shadow: 0 8px 32px rgba(74, 144, 226, 0.15);
+}
+
+/* Hexagonal clip path */
+.hexagon-clip {
+  clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+}
+
+/* Industrial grid background */
+.industrial-grid {
+  background-image: 
+    linear-gradient(rgba(96, 125, 139, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 125, 139, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Cargo container styling */
+.cargo-container {
+  position: relative;
+  background: var(--industrial-blue);
+  border-left: 3px solid var(--cargo-orange);
+  border-top: 1px solid rgba(255, 107, 53, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cargo-container:hover {
+  border-left: 3px solid var(--electric-blue);
+  background: rgba(26, 35, 50, 0.8);
+}
+
+/* Typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.typing-effect {
+  animation: typing 2s steps(40, end);
+}
+
+/* Orbitron display font class */
+.font-display {
+  font-family: var(--font-orbitron);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 40px rgba(255, 107, 53, 0.15);
+}
+
+/* Industrial button hover effects */
+.btn-industrial:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(255, 107, 53, 0.2);
+}
+
+/* Scanline effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.scanline-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--electric-blue), transparent);
+  animation: scanline 3s linear infinite;
+}
