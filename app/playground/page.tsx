@@ -95,6 +95,7 @@ end patrol.`);
   }, [collaboration, isUpdatingCode]);
 
   const [output, setOutput] = useState('');
+  const [isWakingServer, setIsWakingServer] = useState(false);
 
   const handleCreateRoom = () => {
     if (username.trim()) {
@@ -165,6 +166,24 @@ end patrol.`);
 
     return () => clearInterval(interval);
   }, []);
+
+  const wakeupServer = async () => {
+    setIsWakingServer(true);
+    try {
+      setOutput('Waking up server...\n');
+      
+      const response = await fetch('https://commandant-server.onrender.com', {
+        method: 'GET',
+        mode: 'no-cors'
+      });
+      
+      setOutput(prev => prev + 'Server wakeup request sent successfully!\n');
+    } catch (error) {
+      setOutput(prev => prev + 'Server wakeup request completed!\n');
+    } finally {
+      setIsWakingServer(false);
+    }
+  };
 
   const runCode = async () => {
     setOutput('Executing mission...\n');
@@ -270,6 +289,13 @@ end patrol.`);
                 className="btn-cargo-outline px-6 py-3"
               >
                 🔗 JOIN ROOM
+              </button>
+              <button
+                onClick={wakeupServer}
+                disabled={isWakingServer}
+                className="btn-cargo-outline px-6 py-3 disabled:opacity-50"
+              >
+                {isWakingServer ? 'WAKING...' : 'WAKEUP SERVER'}
               </button>
             </div>
           )}
