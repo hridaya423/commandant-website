@@ -14,7 +14,7 @@
     "react-dom": "19.2.1",
     "readline-sync": "^1.4.10",
     "simple-git": "^3.25.0",
-    "uuid": "^11.1.0",
+    "uuid": "^13.0.0",
     "ws": "^8.18.3"
   },
   "devDependencies": {
