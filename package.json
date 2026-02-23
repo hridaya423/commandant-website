@@ -13,7 +13,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "readline-sync": "^1.4.10",
-    "simple-git": "^3.30.0",
+    "simple-git": "^3.32.2",
     "uuid": "^13.0.0",
     "ws": "^8.19.0"
   },
